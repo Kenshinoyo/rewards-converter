@@ -1,6 +1,6 @@
 //- When RewardsConverter file is ran, conversion value equals zero. Further testing is needed.
 
-public class RewardValueRough extends RewardsConverter {
+public class RewardValueRough {
 
     //- Instance variables/attributes
     double uCash; //<-- Local variable for user's cash value
