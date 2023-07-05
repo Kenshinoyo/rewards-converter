@@ -1,41 +1,35 @@
-//- When RewardsConverter file is ran, conversion value equals zero. Further testing is needed.
+public class RewardValue {
+    private final double cashValue;
+    public static final double MILES_TO_CASH_CONVERSION_RATE = 0.0035;
 
-public class RewardValue extends RewardsConverter {
-
-    //- Instance variables/attributes
-    double uCash; //<-- Local variable for user's cash value
-    int uMiles; //<-- Local variable for user's miles
-
-
-    //- Miles constructor(class type)
-    public RewardValue(int miles) //<-- Integer parameter passed as argument in constructor for the sake of initializing "uMiles"
-    {
-        uMiles = miles;
-    }
-
-    //- Cash constructor(class type)
-    public RewardValue(double cash) //<-- Double parameter passed as argument in constructor for the sake of initializing "uCash"
-    {
-        uCash = cash;
-    }
-
-    public static void main(String[] args) {
-
-    }
-//        RewardValue myMiles = new RewardValue();
-
-        public int getMilesValue()
+    public RewardValue(double cashValue)
         {
-            uMiles = (int)(uCash*0.0035); //<-- Cash converts to miles at 0.35%
-            System.out.println(uMiles);
-            return uMiles;
+            this.cashValue = cashValue;
         }
 
-        public double getCashValue()
+    public RewardValue(int milesValue)
         {
-            uCash = uMiles/0.0035;
-            System.out.println(uCash);
-            return uMiles;
+            this.cashValue = convertToCash(milesValue);
         }
 
+    private static int convertToMiles(double cashValue)
+        {
+            return (int) (cashValue / MILES_TO_CASH_CONVERSION_RATE);
+        }
+
+    private static double convertToCash(int milesValue)
+        {
+            return milesValue * MILES_TO_CASH_CONVERSION_RATE;
+        }
+
+    public double getCashValue()
+        {
+            return cashValue;
+        }
+
+    public int getMilesValue()
+        {
+            return convertToMiles(this.cashValue);
+        }
 }
+
