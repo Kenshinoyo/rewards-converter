@@ -1,32 +1,41 @@
-//- Con
-public class RewardValue extends RewardsConverter { /*<-- Make RewardValue a child class of the RewardsConverter,
-                                                            to allow access to already declared methods/values. */
+//- When RewardsConverter file is ran, conversion value equals zero. Further testing is needed.
 
-    //- Instance variables
-    double uCash; //<-- Separate variable for user's cash value
-    int miles; //<-- Separate variable for user's miles
-    int getMilesValue(int miles)
+public class RewardValue extends RewardsConverter {
+
+    //- Instance variables/attributes
+    double uCash; //<-- Local variable for user's cash value
+    int uMiles; //<-- Local variable for user's miles
+
+
+    //- Miles constructor(class type)
+    public RewardValue(int miles) //<-- Integer parameter passed as argument in constructor for the sake of initializing "uMiles"
     {
-        System.out.println("Calculating miles...");
-        miles = cashValue/0.0035;
-        return miles;
+        uMiles = miles;
     }
 
     //- Cash constructor(class type)
-    public RewardValue(double cashValue)
+    public RewardValue(double cash) //<-- Double parameter passed as argument in constructor for the sake of initializing "uCash"
     {
-        uCash = cashValue;
+        uCash = cash;
     }
 
-    //- Miles constructor(class type)
-    public RewardValue()
-    {
-        miles = miles;
+    public static void main(String[] args) {
+
     }
+//        RewardValue myMiles = new RewardValue();
 
+        public int getMilesValue()
+        {
+            uMiles = (int)(uCash*0.0035); //<-- Cash converts to miles at 0.35%
+            System.out.println(uMiles);
+            return uMiles;
+        }
 
-
-
-
+        public double getCashValue()
+        {
+            uCash = uMiles/0.0035;
+            System.out.println(uCash);
+            return uMiles;
+        }
 
 }
