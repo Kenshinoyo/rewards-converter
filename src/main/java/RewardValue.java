@@ -4,7 +4,13 @@ public class RewardValue extends RewardsConverter { /*<-- Make RewardValue a chi
 
     //- Instance variables
     double uCash; //<-- Separate variable for user's cash value
-    int uMiles; //<-- Separate variable for user's miles
+    int miles; //<-- Separate variable for user's miles
+    int getMilesValue(int miles)
+    {
+        System.out.println("Calculating miles...");
+        miles = cashValue/0.0035;
+        return miles;
+    }
 
     //- Cash constructor(class type)
     public RewardValue(double cashValue)
@@ -15,7 +21,7 @@ public class RewardValue extends RewardsConverter { /*<-- Make RewardValue a chi
     //- Miles constructor(class type)
     public RewardValue()
     {
-        uMiles =
+        miles = miles;
     }
 
 
