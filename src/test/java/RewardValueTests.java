@@ -20,11 +20,18 @@ public class RewardValueTests {
 
     @Test
     void convert_from_cash_to_miles() {
-        assert false;
+        double cashValue = 200; //<--Mock Value
+        int convertedMilesValue = (int)(cashValue/0.0035); //<--
+        var rewardValue = new RewardValue(cashValue); //<-- Creating a new Reward Value object to test mock value
+        assertEquals(convertedMilesValue, rewardValue.getMilesValue()); /*<--Checks if the test value is what
+                                                                            it's supposed to be. */
     }
 
     @Test
     void convert_from_miles_to_cash() {
-        assert false;
+        int milesValue = 20000; //<--Mock Value
+        double convertedCashValue = milesValue*0.0035;
+        var rewardValue = new RewardValue(milesValue);
+        assertEquals(convertedCashValue, rewardValue.getCashValue());
     }
 }
