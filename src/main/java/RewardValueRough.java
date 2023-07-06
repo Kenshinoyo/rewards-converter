@@ -1,6 +1,6 @@
 //- When RewardsConverter file is ran, conversion value equals zero. Further testing is needed.
 
-public class RewardValueRough {
+public class RewardValueRough extends RewardsConverter {
 
     //- Instance variables/attributes
     double uCash; //<-- Local variable for user's cash value
@@ -21,14 +21,14 @@ public class RewardValueRough {
 
     public int getMilesValue()
     {
-        uMiles = (int)(uCash*0.0035); //<-- Cash converts to miles at 0.35%
+        uMiles = (int)(uCash/0.0035); //<-- Cash converts to miles at 0.35%
         System.out.println(uMiles);
         return uMiles;
     }
 
     public double getCashValue()
     {
-        uCash = uMiles/0.0035;
+        uCash = uMiles*0.0035;
         System.out.println(uCash);
         return uMiles;
     }
