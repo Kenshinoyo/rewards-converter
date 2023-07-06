@@ -23,7 +23,7 @@ public class RewardValueTests {
     void convert_from_cash_to_miles() {
         double cashValue = 200; //<--Mock Value
         int convertedMilesValue = (int)(cashValue/0.0035); /*<-- Setting variable for conversion operation. Value is
-                                                                  casted to an integer for accurate output. */
+                                                                  cast to an integer for accurate output. */
         var rewardValue = new RewardValue(cashValue); //<-- Creating a new Reward Value object to test mock value
         assertEquals(convertedMilesValue, rewardValue.getMilesValue()); /*<--Changed boolean test to "equals" test to
                                                                             check if the converted test value matches
